@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  corona={
+    
+    photo1 :'/assets/icon/symptoms.jpg',
+    photo2 :'/assets/icon/regle.jpg'
+  }
 
   constructor() {}
 

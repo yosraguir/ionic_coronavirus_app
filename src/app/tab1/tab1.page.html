@@ -1,17 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+     Coronavirus update - Summary
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="false">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Summary</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card color="step-600" class="bold">
+    <ion-card-header>
+      <ion-card-title>Summary</ion-card-title>
+      <br />
+      <table>
+        <tr>
+          <td colspan="2"><b><u>Total</u></b></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td><b><u>New</u></b></td>
+        </tr><br />
+        <tr>
+          <td colspan="2">Cases : <ion-text color="secondary">{{global?.TotalConfirmed | number}}</ion-text>
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>Cases : <ion-text color="warning">{{global?.NewConfirmed | number}}</ion-text>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">Recovered : <ion-text color="success">{{global?.TotalRecovered | number}}</ion-text>
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>Recovered : <ion-text color="success">{{global?.NewRecovered | number}}</ion-text>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">Deaths : <ion-text color="secondary">{{global?.TotalDeaths | number}}</ion-text>
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>Deaths : <ion-text color="danger">{{global?.NewDeaths | number}}
+            </ion-text>
+          </td>
+        </tr>
+      </table>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #horizontalBar></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="step-600" class="bold">
+    <ion-card-header>
+      <ion-card-title>Update Percentges</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+    

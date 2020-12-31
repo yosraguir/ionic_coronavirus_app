@@ -1,17 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Coronavirus update - countries
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-searchbar></ion-searchbar>
+  <ion-list>
+    <ion-card *ngFor="let country of countries">
+      <ion-item>
+        <ion-label>{{country.Country}}</ion-label>
+      </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <ion-card-content>
+        <table>
+          <tr>
+            <td colspan="2">Total Cases : <ion-text color="secondary">{{country?.TotalConfirmed | number}}</ion-text>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>New Cases : <ion-text color="warning">{{country?.NewConfirmed | number}}</ion-text>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Total Recovered : <ion-text color="success">{{country?.TotalRecovered | number}}</ion-text>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>New Recovered : <ion-text color="success">{{country?.NewRecovered | number}}</ion-text>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Total Deaths : <ion-text color="secondary">{{country?.TotalDeaths | number}}</ion-text>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>New Deaths : <ion-text color="danger">{{country?.NewDeaths | number}}
+              </ion-text>
+            </td>
+          </tr>
+        </table>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
 </ion-content>
